@@ -114,23 +114,30 @@
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JmD-lN-QkF">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.765179728" green="0.10664631300000001" blue="0.1625172621" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="BvX-sJ-JXC">
+                                <rect key="frame" x="169" y="315.5" width="37" height="37"/>
+                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JmD-lN-QkF" firstAttribute="bottom" secondItem="FXw-yO-iJQ" secondAttribute="bottom" id="5ld-FN-DRz"/>
                             <constraint firstItem="JmD-lN-QkF" firstAttribute="leading" secondItem="FXw-yO-iJQ" secondAttribute="leading" id="5o2-S2-YRr"/>
                             <constraint firstItem="JmD-lN-QkF" firstAttribute="top" secondItem="FXw-yO-iJQ" secondAttribute="top" id="Sbw-8f-a4g"/>
+                            <constraint firstItem="BvX-sJ-JXC" firstAttribute="centerX" secondItem="sar-h4-Pwx" secondAttribute="centerX" id="ZBF-Ss-d9P"/>
+                            <constraint firstItem="BvX-sJ-JXC" firstAttribute="centerY" secondItem="sar-h4-Pwx" secondAttribute="centerY" id="f2s-3L-NZC"/>
                             <constraint firstItem="JmD-lN-QkF" firstAttribute="trailing" secondItem="FXw-yO-iJQ" secondAttribute="trailing" id="zpf-Ig-2DH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FXw-yO-iJQ"/>
                     </view>
                     <connections>
+                        <outlet property="spinner" destination="BvX-sJ-JXC" id="gfJ-Ad-8Kx"/>
                         <outlet property="webKitView" destination="JmD-lN-QkF" id="zcA-mm-9c6"/>
                     </connections>
                 </viewController>

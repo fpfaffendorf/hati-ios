@@ -13,13 +13,20 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     var serverUrl : String?
     @IBOutlet weak var webKitView: WKWebView!
-
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Init UI
         webKitView.navigationDelegate = self
         webKitView.allowsBackForwardNavigationGestures = true
+        webKitView.backgroundColor = UIColor(displayP3Red: 67, green: 67, blue: 67, alpha: 1)
+        webKitView.scrollView.backgroundColor = UIColor(displayP3Red: 67, green: 67, blue: 67, alpha: 1)
+        spinner.isHidden = false
+        spinner.startAnimating()
         
+        // Load URL
         if let urlString = serverUrl {
             guard let url = URL(string: urlString) else {return}
             let request = URLRequest(url: url)
@@ -42,6 +49,11 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         handleError(error)
+    }
+    
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        spinner.stopAnimating()
+        spinner.isHidden = true
     }
     
     func handleError(_ error: Error) {

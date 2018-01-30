@@ -17,7 +17,8 @@ class ServerConfigViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        connectButton.layer.cornerRadius = 6
         // Do any additional setup after loading the view.
     }
 
